@@ -1,16 +1,19 @@
 import React, {Component} from 'react';
+import CountdownTypeHhMmSs from './CountdownTypeHhMmSs';
 
 class TypeHhMmSs extends Component {
     constructor(props) {
         super(props);
-        this.handleHourChange = this.handleHourChange.bind(this)
-        this.handleMinChange = this.handleMinChange.bind(this)
-        this.handleSecChange = this.handleSecChange.bind(this)
+        this.handleHourChange = this.handleHourChange.bind(this);
+        this.handleMinChange = this.handleMinChange.bind(this);
+        this.handleSecChange = this.handleSecChange.bind(this);
+        this.handleSubmit   = this.handleSubmit.bind(this);
 
         this.state = {
             hour:0,
             min:0,
-            sec:0
+            sec:0,
+            showClock: 0
         }
     }
 
@@ -24,6 +27,19 @@ class TypeHhMmSs extends Component {
 
     handleSecChange(e){
         this.setState({sec: e.target.value});
+    }
+
+    handleSubmit(e){
+        e.preventDefault();
+        const valueHour = this.state.hour;
+        const valueMin = this.state.min;
+        const valueSec = this.state.sec;
+
+        if (valueSec > 0 || valueMin > 0 || valueHour > 0){
+            this.setState({showClock:1})
+        } else {
+            this.setState({showClock:2})
+        }
     }
 
     render(){
@@ -51,27 +67,37 @@ class TypeHhMmSs extends Component {
             <option key={sec} value={sec}>{sec}</option>
         )
 
-        return (
-            <form>
-                <p>Set Hour/Minute/Second</p>
-                {/* <div>
-                    <span>Hour</span>
-                    <span>Minute</span>
-                    <span>Second</span>
-                </div> */}
-            
-                <select value={this.state.hour} onChange={this.handleHourChange}>
-                    {hourList}
-                </select>
-        
-                <select value={this.state.min} onChange={this.handleMinChange}>
-                    {minList}
-                </select>
+        const _showClock = this.state.showClock;
+        let clockComponent;
+        if (_showClock === 1) {
+            clockComponent = <CountdownTypeHhMmSs hour={this.state.hour} min={this.state.min} sec={this.state.sec} />;
+        } else if (_showClock === 2) {
+            clockComponent = <h3>Please set up timer</h3>;
+        }
 
-                <select value={this.state.sec} onChange={this.handleSecChange}>
-                    {secList}
-                </select>
-            </form>
+
+        return (
+            <div className="hh-mm-yyyy">
+                <form onSubmit={this.handleSubmit}>
+                    <p>Set Hour/Minute/Second</p>
+                
+                    <select value={this.state.hour} onChange={this.handleHourChange}>
+                        {hourList}
+                    </select>
+            
+                    <select value={this.state.min} onChange={this.handleMinChange}>
+                        {minList}
+                    </select>
+
+                    <select value={this.state.sec} onChange={this.handleSecChange}>
+                        {secList}
+                    </select>
+
+                    <input type="submit" value="Start" />
+                </form>
+
+                {clockComponent}
+            </div>
         )
     }
 }

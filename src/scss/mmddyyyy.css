@@ -7,3 +7,6 @@
 .mm-dd-yyyy .react-date-picker__calendar--above-label {
   bottom: 0;
   top: 100%; }
+  @media (max-width: 480px) {
+    .mm-dd-yyyy .react-date-picker__calendar--above-label .react-calendar {
+      width: 250px; } }

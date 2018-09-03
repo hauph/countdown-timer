@@ -34,3 +34,6 @@
     padding-top: 10px; }
     .app .type-wrapper .control-btn-wrapper button {
       margin: 10px 5px; }
+
+.app > p {
+  margin: 20px; }

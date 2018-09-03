@@ -1,0 +1,9 @@
+.mm-dd-yyyy #start {
+  height: 29px;
+  vertical-align: bottom;
+  line-height: 0;
+  margin-left: 10px; }
+
+.mm-dd-yyyy .react-date-picker__calendar--above-label {
+  bottom: 0;
+  top: 100%; }

@@ -1,0 +1,36 @@
+.app > form {
+  display: inline-block; }
+  .app > form select {
+    height: 29px; }
+    @media (max-width: 585px) {
+      .app > form select {
+        width: 100%; } }
+  .app > form .color-wrapper {
+    display: inherit;
+    vertical-align: bottom;
+    margin-left: 10px;
+    position: relative; }
+    .app > form .color-wrapper .chrome-picker {
+      position: absolute;
+      z-index: 99; }
+    @media (max-width: 585px) {
+      .app > form .color-wrapper {
+        margin-left: 0;
+        margin-top: 20px; }
+        .app > form .color-wrapper .chrome-picker {
+          left: 50%;
+          -webkit-transform: translate(-50%, 0%);
+          -ms-transform: translate(-50%, 0%);
+          -o-transform: translate(-50%, 0%);
+          -moz-transform: translate(-50%, 0%);
+          transform: translate(-50%, 0%); } }
+
+.app .type-wrapper {
+  margin-top: 20px; }
+  .app .type-wrapper h3 {
+    margin: 20px 0px 10px 0; }
+  .app .type-wrapper .control-btn-wrapper {
+    clear: both;
+    padding-top: 10px; }
+    .app .type-wrapper .control-btn-wrapper button {
+      margin: 10px 5px; }

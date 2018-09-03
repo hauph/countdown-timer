@@ -1,0 +1,8 @@
+.hh-mm-yyyy select {
+  height: 29px; }
+
+.hh-mm-yyyy #start {
+  height: 29px;
+  vertical-align: bottom;
+  line-height: 0;
+  margin-left: 10px; }

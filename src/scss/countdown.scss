@@ -1,0 +1,50 @@
+@import './scss/variable-mixin.scss';
+
+.wrapper-countdown {
+    .wrapper-inner {
+      .countdown-item {
+        display: inline-block;
+        position: relative;
+  
+        .time-express {
+            @extend %positionAbsolute;
+            @include transform (translate(-50%, -50%));
+            text-align: center;
+    
+            span {
+                text-transform: uppercase;
+                color: $rgba;
+            }
+    
+            .line {
+                width: 100%;
+                margin-top: 10px;
+                margin-bottom: 10px;
+            }
+        }
+  
+        &:after {
+          content: "";
+          width: 100px;
+          height: 100px;
+          @extend %positionAbsolute;
+          @include transform (translate(-50%, -50%));
+          border: 1px solid $black;
+          opacity: $alpha - 0.4;
+          border-radius: 20px;
+          top: 50%;
+        }
+      }
+    }
+  
+    @media (max-width: 479px) {
+  
+      .wrapper-inner {
+        flex-wrap: wrap;
+  
+        @media (max-width: 415px){
+          width: 100%;
+        }
+      }
+    }
+  }

@@ -1,8 +1,8 @@
 import React, {Component} from "react";
-import Main_Js from '../src/js/main';
+import Main_Js from '../src/js/main'
 import './scss/countdown.css';
 
-class CountdownTypeHhMmSs extends Component{
+class CountdownTypeMmDdYyyy extends Component{
     constructor(props){
         super(props);
         this.tick = this.tick.bind(this);
@@ -11,7 +11,7 @@ class CountdownTypeHhMmSs extends Component{
             totalSecs: this.props.totalSec
         }
     }
-    
+
     componentDidMount(){
         this.timerID = setInterval(()=>{
             this.tick();
@@ -22,7 +22,7 @@ class CountdownTypeHhMmSs extends Component{
         clearInterval(this.timerID);
     }
 
-    tick() {
+    tick(){
         if(this.props.pause === true) return;
 
         if(this.state.totalSecs > 0) {
@@ -34,7 +34,7 @@ class CountdownTypeHhMmSs extends Component{
         }
 
         let _totalSecs = this.state.totalSecs;
-        Main_Js.countdownTypeHhMmSs(_totalSecs) 
+        Main_Js.countdownTypeMmDdYyyy(_totalSecs) 
     }
 
     render(){
@@ -58,11 +58,22 @@ class CountdownTypeHhMmSs extends Component{
                 <div className="wrapper-inner">
                     <div className="countdown-item">
                         <svg width="110" height="110">
+                            <rect x="5" y="5" rx="20" ry="20" width="100" height="100" style={svgStyle} id="day" />
+                        </svg>
+                        <div className="time-express">
+                            <div id="day_number" className="number" style={numberColor}></div>
+                            <hr className="line" style={lineColor}/>
+                            <span style={numberColor}>Day</span>
+                        </div>
+                    </div>
+
+                    <div className="countdown-item">
+                        <svg width="110" height="110">
                             <rect x="5" y="5" rx="20" ry="20" width="100" height="100" style={svgStyle} id="hour" />  
                         </svg>
                         <div className="time-express">
                             <div id="hour_number" className="number" style={numberColor}></div>
-                            <hr className="line" style={lineColor} />
+                            <hr className="line" style={lineColor}/>
                             <span style={numberColor}>Hour</span>
                         </div>
                     </div>
@@ -73,7 +84,7 @@ class CountdownTypeHhMmSs extends Component{
                         </svg>
                         <div className="time-express">
                             <div id="min_number" className="number" style={numberColor}></div>
-                            <hr className="line" style={lineColor} />
+                            <hr className="line" style={lineColor}/>
                             <span style={numberColor}>Min</span>
                         </div>
                     </div>
@@ -84,14 +95,14 @@ class CountdownTypeHhMmSs extends Component{
                             </svg>
                         <div className="time-express">
                             <div id="sec_number" className="number" style={numberColor}></div>
-                            <hr className="line" style={lineColor} />
+                            <hr className="line" style={lineColor}/>
                             <span style={numberColor}>Sec</span>
                         </div>
                     </div>
                 </div>
             </div> 
         )
-    }   
+    }
 }
 
-export default CountdownTypeHhMmSs;
+export default CountdownTypeMmDdYyyy;

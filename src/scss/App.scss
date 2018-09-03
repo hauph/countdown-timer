@@ -1,0 +1,54 @@
+@import './scss/variable-mixin.scss';
+
+.app {
+    & > form{
+        display: inline-block;
+
+        select {
+            height: 29px;
+
+            @media (max-width:585px){
+                width: 100%;
+            }
+        }
+
+        .color-wrapper {
+            display: inherit;
+            vertical-align: bottom;
+            margin-left: 10px;
+            position: relative;
+
+            .chrome-picker {
+                position: absolute;
+                z-index: 99;
+            }
+
+            @media (max-width:585px){
+                margin-left: 0;
+                margin-top: 20px;
+
+                .chrome-picker {
+                    left: 50%;
+                    @include transform (translate(-50%, 0%));
+                }
+            }
+        }
+    }
+
+    .type-wrapper {
+        margin-top: 20px;
+
+        h3 {
+            margin: 20px 0px 10px 0;
+        }
+
+        .control-btn-wrapper {
+            clear: both;
+            padding-top: 10px;
+
+            button{
+                margin: 10px 5px;
+            }
+        }
+    }
+}

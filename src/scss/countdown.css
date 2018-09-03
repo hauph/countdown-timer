@@ -1,0 +1,42 @@
+.wrapper-countdown .wrapper-inner .countdown-item .time-express, .wrapper-countdown .wrapper-inner .countdown-item:after {
+  position: absolute;
+  top: 50%;
+  left: 50%; }
+
+.wrapper-countdown .wrapper-inner .countdown-item {
+  display: inline-block;
+  position: relative; }
+  .wrapper-countdown .wrapper-inner .countdown-item .time-express {
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center; }
+    .wrapper-countdown .wrapper-inner .countdown-item .time-express span {
+      text-transform: uppercase;
+      color: rgba(0, 0, 0, 0.5); }
+    .wrapper-countdown .wrapper-inner .countdown-item .time-express .line {
+      width: 100%;
+      margin-top: 10px;
+      margin-bottom: 10px; }
+  .wrapper-countdown .wrapper-inner .countdown-item:after {
+    content: "";
+    width: 100px;
+    height: 100px;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    border: 1px solid #000000;
+    opacity: 0.1;
+    border-radius: 20px;
+    top: 50%; }
+
+@media (max-width: 479px) {
+  .wrapper-countdown .wrapper-inner {
+    flex-wrap: wrap; } }
+  @media (max-width: 479px) and (max-width: 415px) {
+    .wrapper-countdown .wrapper-inner {
+      width: 100%; } }

@@ -16,7 +16,7 @@ var Main_Js = {
             update(thisHour, currentHour);
         } else {
             document.getElementById("hour_number").innerHTML = 0;
-            thisHour.style.strokeDashoffset = "35";
+            thisHour.style.strokeDashoffset = "34";
         }
 
         if (min > 0) {
@@ -25,7 +25,7 @@ var Main_Js = {
             update(thisMin, currentMin);
         } else {
             document.getElementById("min_number").innerHTML = 0;
-            thisMin.style.strokeDashoffset  = "35";
+            thisMin.style.strokeDashoffset  = "34";
         }
 
         if (sec > 0) {
@@ -34,7 +34,7 @@ var Main_Js = {
             update(thisSec, currentSec);        
         } else {
             document.getElementById("sec_number").innerHTML = 0;
-            thisSec.style.strokeDashoffset  = "35";
+            thisSec.style.strokeDashoffset  = "34";
         }
 
 
@@ -62,7 +62,7 @@ var Main_Js = {
             update(thisDay, currentDay);
         } else {
             document.getElementById("day_number").innerHTML = 0;
-            thisDay.style.strokeDashoffset = "35";
+            thisDay.style.strokeDashoffset = "34";
         }
 
         if (hour > 0) {
@@ -71,7 +71,7 @@ var Main_Js = {
             update(thisHour, currentHour);
         } else {
             document.getElementById("hour_number").innerHTML = 0;
-            thisHour.style.strokeDashoffset = "35";
+            thisHour.style.strokeDashoffset = "34";
         }
 
         if (min > 0) {
@@ -80,7 +80,7 @@ var Main_Js = {
             update(thisMin, currentMin);
         } else {
             document.getElementById("min_number").innerHTML = 0;
-            thisMin.style.strokeDashoffset  = "35";
+            thisMin.style.strokeDashoffset  = "34";
         }
 
         if (sec > 0) {
@@ -89,7 +89,7 @@ var Main_Js = {
             update(thisSec, currentSec);        
         } else {
             document.getElementById("sec_number").innerHTML = 0;
-            thisSec.style.strokeDashoffset  = "35";
+            thisSec.style.strokeDashoffset  = "34";
         }
 
         function update(id, currentNo) {

@@ -36,7 +36,6 @@ class CountdownTypeHhMmSs extends Component{
                 new Audio(peep).play()
             }
         } else if (this.state.totalSecs === 0) {
-            console.log('true')
             this.setState({totalSecs: 0})
             new Audio(peep).pause()
         }

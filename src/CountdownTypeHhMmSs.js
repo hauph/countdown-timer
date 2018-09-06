@@ -1,6 +1,8 @@
 import React, {Component} from "react";
 import Main_Js from '../src/js/main';
 import './scss/countdown.css';
+import peep from './media/simonSound1.mp3';
+import alarm from './media/Alarm.mp3'
 
 class CountdownTypeHhMmSs extends Component{
     constructor(props){
@@ -15,7 +17,7 @@ class CountdownTypeHhMmSs extends Component{
     componentDidMount(){
         this.timerID = setInterval(()=>{
             this.tick();
-        }, 1000)       
+        }, 1000)  
     }
 
     componentWillUnmount() {
@@ -29,8 +31,14 @@ class CountdownTypeHhMmSs extends Component{
             this.setState((prevState, props)=>({
                 totalSecs: prevState.totalSecs - 1
             }))
+
+            if (this.state.totalSecs <=5) {
+                new Audio(peep).play()
+            }
         } else if (this.state.totalSecs === 0) {
+            console.log('true')
             this.setState({totalSecs: 0})
+            new Audio(peep).pause()
         }
 
         let _totalSecs = this.state.totalSecs;
@@ -38,6 +46,10 @@ class CountdownTypeHhMmSs extends Component{
     }
 
     render(){
+        if (this.state.totalSecs === 0){
+            document.getElementById('alarm').play()
+        }
+
         const svgStyle = {
             fillOpacity: 0,
             fill: 'white',
@@ -89,6 +101,7 @@ class CountdownTypeHhMmSs extends Component{
                         </div>
                     </div>
                 </div>
+                <audio id="alarm" src={alarm}/>
             </div> 
         )
     }   

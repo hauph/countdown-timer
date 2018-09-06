@@ -74,6 +74,7 @@ class App extends Component {
           </form>
 
           {renderSelect}
+          
           <p><a href="https://github.com/hauph/countdown-timer">View Source</a></p>
         </div>
       </ColorContext.Provider>  

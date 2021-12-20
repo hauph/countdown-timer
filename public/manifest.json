@@ -1,15 +1,41 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Countdown Timer",
+  "name": "Countdown Timer",
   "icons": [
     {
-      "src": "favicon.ico",
-      "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/x-icon"
+      "src": "reactjs.png",
+      "type": "image/png",
+      "sizes": "48x48"
+    },
+    {
+      "src": "reactjs.png",
+      "type": "image/png",
+      "sizes": "96x96"
+    },
+    {
+      "src": "reactjs.png",
+      "type": "image/png",
+      "sizes": "144x144"
+    },
+    {
+      "src": "reactjs.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "reactjs.png",
+      "type": "image/png",
+      "sizes": "256x256"
+    },
+    {
+      "src": "reactjs.png",
+      "type": "image/png",
+      "sizes": "384x384"
     }
   ],
   "start_url": "./index.html",
   "display": "standalone",
+  "orientation": "portrait-primary",
   "theme_color": "#000000",
   "background_color": "#ffffff"
 }

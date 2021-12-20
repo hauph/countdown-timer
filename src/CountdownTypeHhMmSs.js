@@ -1,109 +1,140 @@
-import React, {Component} from "react";
-import Main_Js from '../src/js/main';
-import './scss/countdown.css';
-import peep from './media/simonSound1.mp3';
-import alarm from './media/Alarm.mp3'
+import React, { Component } from "react";
+import Main_Js from "../src/js/main";
+import "./scss/countdown.css";
+import peep from "./media/simonSound1.mp3";
+import alarm from "./media/Alarm.mp3";
 
-class CountdownTypeHhMmSs extends Component{
-    constructor(props){
-        super(props);
-        this.tick = this.tick.bind(this);
+class CountdownTypeHhMmSs extends Component {
+  constructor(props) {
+    super(props);
+    this.tick = this.tick.bind(this);
 
-        this.state = {
-            totalSecs: this.props.totalSec
-        }
-    }
-    
-    componentDidMount(){
-        this.timerID = setInterval(()=>{
-            this.tick();
-        }, 1000)  
-    }
+    this.state = {
+      totalSecs: this.props.totalSec,
+    };
+  }
 
-    componentWillUnmount() {
-        clearInterval(this.timerID);
-    }
+  componentDidMount() {
+    this.timerID = setInterval(() => {
+      this.tick();
+    }, 1000);
+  }
 
-    tick() {
-        if(this.props.pause === true) return;
+  componentWillUnmount() {
+    clearInterval(this.timerID);
+  }
 
-        if(this.state.totalSecs > 0) {
-            this.setState((prevState, props)=>({
-                totalSecs: prevState.totalSecs - 1
-            }))
+  tick() {
+    if (this.props.pause === true) return;
 
-            if (this.state.totalSecs <=5) {
-                new Audio(peep).play()
-            }
-        } else if (this.state.totalSecs === 0) {
-            this.setState({totalSecs: 0})
-            new Audio(peep).pause()
-        }
+    if (this.state.totalSecs > 0) {
+      this.setState((prevState, props) => ({
+        totalSecs: prevState.totalSecs - 1,
+      }));
 
-        let _totalSecs = this.state.totalSecs;
-        Main_Js.countdownTypeHhMmSs(_totalSecs) 
+      if (this.state.totalSecs <= 10) {
+        new Audio(peep).play();
+      }
+    } else if (this.state.totalSecs === 0) {
+      this.setState({ totalSecs: 0 });
+      new Audio(peep).pause();
     }
 
-    render(){
-        if (this.state.totalSecs === 0){
-            document.getElementById('alarm').play()
-        }
+    let _totalSecs = this.state.totalSecs;
+    Main_Js.countdownTypeHhMmSs(_totalSecs);
+  }
 
-        const svgStyle = {
-            fillOpacity: 0,
-            fill: 'white',
-            stroke: this.props.color,
-            strokeWidth:1,
-            strokeDasharray:400,
-            strokeDashoffset:400
-        },
-        numberColor = {
-            color: this.props.color,
-        },
-        lineColor = {
-            borderColor: this.props.color,
-        }
+  render() {
+    if (this.state.totalSecs === 0) {
+      document.getElementById("alarm").play();
+    }
 
-        return (
-            <div className="wrapper-countdown">
-                <div className="wrapper-inner">
-                    <div className="countdown-item">
-                        <svg width="110" height="110">
-                            <rect x="5" y="5" rx="20" ry="20" width="100" height="100" style={svgStyle} id="hour" />  
-                        </svg>
-                        <div className="time-express">
-                            <div id="hour_number" className="number" style={numberColor}></div>
-                            <hr className="line" style={lineColor} />
-                            <span style={numberColor}>Hour</span>
-                        </div>
-                    </div>
+    const svgStyle = {
+        fillOpacity: 0,
+        fill: "white",
+        stroke: this.props.color,
+        strokeWidth: 1,
+        strokeDasharray: 400,
+        strokeDashoffset: 400,
+      },
+      numberColor = {
+        color: this.props.color,
+      },
+      lineColor = {
+        borderColor: this.props.color,
+      };
 
-                    <div className="countdown-item">
-                        <svg width="110" height="110">
-                            <rect x="5" y="5" rx="20" ry="20" width="100" height="100" style={svgStyle} id="min" />
-                        </svg>
-                        <div className="time-express">
-                            <div id="min_number" className="number" style={numberColor}></div>
-                            <hr className="line" style={lineColor} />
-                            <span style={numberColor}>Min</span>
-                        </div>
-                    </div>
+    return (
+      <div className="wrapper-countdown">
+        <div className="wrapper-inner">
+          <div className="countdown-item">
+            <svg width="110" height="110">
+              <rect
+                x="5"
+                y="5"
+                rx="20"
+                ry="20"
+                width="100"
+                height="100"
+                style={svgStyle}
+                id="hour"
+              />
+            </svg>
+            <div className="time-express">
+              <div
+                id="hour_number"
+                className="number"
+                style={numberColor}
+              ></div>
+              <hr className="line" style={lineColor} />
+              <span style={numberColor}>Hour</span>
+            </div>
+          </div>
 
-                    <div className="countdown-item">
-                        <svg width="110" height="110">
-                            <rect x="5" y="5" rx="20" ry="20" width="100" height="100" style={svgStyle} id="sec" />
-                            </svg>
-                        <div className="time-express">
-                            <div id="sec_number" className="number" style={numberColor}></div>
-                            <hr className="line" style={lineColor} />
-                            <span style={numberColor}>Sec</span>
-                        </div>
-                    </div>
-                </div>
-                <audio id="alarm" src={alarm}/>
-            </div> 
-        )
-    }   
+          <div className="countdown-item">
+            <svg width="110" height="110">
+              <rect
+                x="5"
+                y="5"
+                rx="20"
+                ry="20"
+                width="100"
+                height="100"
+                style={svgStyle}
+                id="min"
+              />
+            </svg>
+            <div className="time-express">
+              <div id="min_number" className="number" style={numberColor}></div>
+              <hr className="line" style={lineColor} />
+              <span style={numberColor}>Min</span>
+            </div>
+          </div>
+
+          <div className="countdown-item">
+            <svg width="110" height="110">
+              <rect
+                x="5"
+                y="5"
+                rx="20"
+                ry="20"
+                width="100"
+                height="100"
+                style={svgStyle}
+                id="sec"
+              />
+            </svg>
+            <div className="time-express">
+              <div id="sec_number" className="number" style={numberColor}></div>
+              <hr className="line" style={lineColor} />
+              <span style={numberColor}>Sec</span>
+            </div>
+          </div>
+        </div>
+        <audio id="alarm" src={alarm} />
+      </div>
+    );
+  }
 }
 
 export default CountdownTypeHhMmSs;

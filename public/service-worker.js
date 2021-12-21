@@ -5,7 +5,8 @@ self.addEventListener("notificationclick", (event) => {
   if (action === "cancel") {
     event.waitUntil(
       clients.matchAll({ type: "window" }).then((clientsArr) => {
-        const url = "http://localhost:5001/#/";
+        // const url = "http://localhost:5001/#/"; // Dev
+        const url = "https://countdown-timer.onrender.com/#/";
         // If a Window tab matching the targeted URL already exists, focus that;
         const hadWindowToFocus = clientsArr.some(async (windowClient) =>
           windowClient.url === url

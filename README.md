@@ -1,6 +1,6 @@
 ## Countdown Timer
 
-Demo: https://hauph.github.io/countdown-timer/
+Demo: https://countdown-timer.onrender.com/
 
 This app was built by React which 2 features:
 
